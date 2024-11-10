@@ -263,10 +263,10 @@ token_loop:
 				while (top) {
 					let p2=PREC[top.type] as number;
 					if (p2 > p1) {
-						output.push(token);
+						output.push(top);
 						op_stack.pop() 
 					} else if (p2 == p1 && token.type==TOKS.pow){
-						output.push(token);
+						output.push(top);
 						op_stack.pop() 
 					} else {
 						 break 
@@ -318,7 +318,8 @@ let exp=process.argv.slice(2).join(' ');
 if (exp!='') {
 	console.log("exp from params: ",exp);	
 } else {
-	exp='-1+(-2 +-5*+8.6)-3';
+	//exp='-1+(-2 +-5*+8.6)-3';
+	exp='2*3+4';
 	console.log("default exp: ",exp);	
 }
 
